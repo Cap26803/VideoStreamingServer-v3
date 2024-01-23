@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Video Repository</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* Internal CSS styles here */
+        body {
+            font-family: 'Mulish', sans-serif;
+            font-size: 16px;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Add your internal CSS styles for repository.html here */
+
+        .navbar {
+            background-color: #F4F1FF;
+            padding: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar .logo img {
+            height: 50px;
+            margin-left: 10px;
+        }
+
+        .nav-list {
+            list-style: none;
+            display: flex;
+            gap: 24px;
+        }
+
+        .nav-list li {
+            font-size: 18px;
+        }
+
+        .nav-list a {
+            display: block;
+            line-height: 45px;
+            padding: 0 14px;
+            text-decoration: none;
+            color: #030000;
+            box-shadow: inset 0 0 0 0 #0066FF;
+            transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
+            font-size: 18px;
+        }
+
+        .nav-list a:hover {
+            color: #fdfdfd;
+            box-shadow: inset 100px 0 0 0 #0066FF;
+        }
+
+        .background-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+
+        .repository-container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 16px;
+            background-color: #F4F1FF;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            text-align: center;
+            color: #1F2346;
+        }
+
+        .repository-container h1 {
+            font-size: 24px;
+            margin-bottom: 16px;
+            background-color: white;
+        }
+
+        .video-stored-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .video-stored-container h2 {
+            font-size: 20px;
+            width: 100%;
+            text-align: center;
+            margin-bottom: 16px;
+        }
+
+        .video-card {
+            width: 300px;
+            background-color: white;
+            border: 1px solid #E1EEF5;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 16px;
+        }
+
+        .video-card img {
+            width: 100%;
+            height: auto;
+            border-bottom: 1px solid #E1EEF5;
+        }
+
+        .video-card h3 {
+            font-size: 18px;
+            margin: 12px 0;
+        }
+
+        .video-card p {
+            font-size: 14px;
+            margin: 0;
+            padding: 8px;
+        }
+
+        .upload-link {
+            position: fixed;
+            top: 90px;
+            right: 40px;
+            background-color: #0066FF;
+            padding: 10px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .upload-link img {
+            width: 30px;
+            height: 30px;
+            filter: invert(100%);
+        }
+
+        .popup-container {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            z-index: 1000;
+        }
+
+        .popup {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <a href="/index" class="logo" title="Logo">
+            <img src="assets/media.svg" alt="Logo">
+        </a>
+        <ul class="nav-list">
+            <li><a href="/index">Home</a></li>
+            <li><a href="/Contact">Contact</a></li>
+            <li><a href="/repository#video-stored">Video Stored</a></li>
+            <!-- Add more navigation links as needed -->
+        </ul>
+        <div class="profile-section">
+            <span id="user-profile-name">{{ user.name }}</span>
+        </div>
+    </nav>
+
+    <!-- Repository Content -->
+    <div class="repository-container">
+        <!-- "+" Icon to redirect to upload.html -->
+        <form action="/upload" method="post" enctype="multipart/form-data">
+            <input type="file" name="video" accept="video/*">
+            <button type="submit">Upload</button>
+          </form>
+          
+
+        <h1>Video Repository</h1>
+        <div id="videoMetadataContainer"></div>
+        <img class="background-image" src="assets/home.svg" alt="Wave background">
+        <section id="video-stored" class="video-stored-container">
+            <h2>Video Stored</h2>
+            <!-- Video Cards will be dynamically added here -->
+        </section>
+
+        <!-- Additional Repository Content -->
+        <div class="additional-content">
+            <!-- Add more content related to the video repository here -->
+        </div>
+    </div>
+
+    <!-- Pop-up Message Container -->
+    <div id="popup-container" class="popup-container"></div>
+
+    <!-- Include the same footer as in index.html if applicable -->
+
+    <script src="script.js"></script>
+</body>
+
+</html>

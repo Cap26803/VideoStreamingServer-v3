@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Upload Video</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* Internal CSS styles here */
+        body {
+            font-family: 'Mulish', sans-serif;
+            font-size: 16px;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Add your internal CSS styles for upload.html here */
+
+        .upload-container {
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 16px;
+            background-color: #F4F1FF;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            text-align: center;
+            color: #1F2346;
+        }
+
+        .upload-container h1 {
+            font-size: 24px;
+            margin-bottom: 16px;
+            background-color: white;
+        }
+
+        /* Add more styles for the upload form as needed */
+    </style>
+</head>
+
+<body>
+    <!-- Upload Container -->
+    <div class="upload-container">
+        <h1>Upload Video</h1>
+        <!-- Your upload form goes here -->
+        <form id="uploadForm" action="/upload" method="post" enctype="multipart/form-data">
+            <!-- Add your form fields for video upload -->
+            <input type="file" name="video" accept="video/*" required>
+            <button type="submit">Upload</button>
+        </form>
+    </div>
+
+    <!-- Include the same footer as in index.html if applicable -->
+
+    <script src="script.js"></script>
+</body>
+
+</html>
